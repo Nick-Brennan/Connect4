@@ -11,6 +11,7 @@ $(function(){
     );
     
     //get index of column where piece was dropped
+    //and fill the last available slot beneith
     $('.moveCell').click(function(){
             var col = $(this).attr('value');
             console.log(col);
