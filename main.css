@@ -30,3 +30,18 @@
 #title{
     text-align: center;
 }
+
+#moveRow{
+    width: 70%;
+    height: 81px;
+    text-align: center;
+}
+
+.moveCell{
+    border-radius: 150px;
+    height: 60px;
+    display: inline-block;
+    width: 13%;
+    margin: 0px;
+    margin-top: 10px;
+}
