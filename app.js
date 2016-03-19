@@ -15,7 +15,7 @@ $(function(){
             var col = $(this).attr('value');
             console.log(col);
             if(boardArr[0][col] !== '.'){
-
+                return;
             }else if(boardArr[5][col] === '.'){
                 boardArr[5][col] = chip;
             }else if(boardArr[4][col] === '.'){
