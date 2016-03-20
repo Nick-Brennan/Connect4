@@ -1,5 +1,6 @@
 var playerColor = 'red'
 var chip = 'r'
+
 $(function(){
     //get ready to drop piece
     console.log('jquery');
@@ -41,6 +42,7 @@ $(function(){
             checkForWin();
     });
     
+    //clear the win notification
     $('#alertBox').on('click', function(){
         if($(this).text){
             $(this).css('display', 'none');
@@ -85,7 +87,9 @@ function checkRow(arr, x){
             arr[2] === x && arr[3] === x && arr[4] === x && arr[5] === x ||
             arr[3] === x && arr[4] === x && arr[5] === x && arr[6] === x);
 }
-            
+
+
+//check win cases            
 function checkRows(x){
     return (checkRow(boardArr[0], x) ||
             checkRow(boardArr[1], x) ||
@@ -181,6 +185,7 @@ function checkForWin(){
     }        
 } 
 
+//reset the board
 function boardReset(){
     boardArr = [
         ['.','.','.','.','.','.','.'],

@@ -59,6 +59,6 @@
     color: green;
     display: none;
     font-size: 80px;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-shadow: -2px 0 1px black, 0 2px 1px black, 2px 0 1px black, 0 -2px 1px black;
 }
 
