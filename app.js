@@ -32,10 +32,13 @@ $(function(){
             }else if(boardArr[0][col] === '.'){
                 boardArr[0][col] = chip;
             }
+            
             playerColor = (playerColor === 'red') ? 'black' : 'red';
             chip = (chip === 'r') ? 'b' : 'r';
             $(this).css('background-color', playerColor);
+        
             renderBoard();
+            checkForWin();
     });
 });
 
@@ -66,3 +69,29 @@ function renderBoard(){
         });
     });
 }
+
+function checkRow(arr, x){
+    return (arr[0] === x && arr[1] === x && arr[2] === x && arr[3] === x ||
+            arr[1] === x && arr[2] === x && arr[3] === x && arr[4] === x ||
+            arr[2] === x && arr[3] === x && arr[4] === x && arr[5] === x ||
+            arr[3] === x && arr[4] === x && arr[5] === x && arr[6] === x);
+}
+            
+function checkRows(x){
+    return (checkRow(boardArr[0], x) ||
+            checkRow(boardArr[1], x) ||
+            checkRow(boardArr[2], x) ||
+            checkRow(boardArr[3], x) ||
+            checkRow(boardArr[4], x) ||
+            checkRow(boardArr[5], x));
+}
+            
+function checkForWin(){
+    if(checkRows('r')){
+        alert('red wins');
+        location.reload();
+    }else if(checkRows('b')){
+        alert('black wins');
+        location.reload();
+    }        
+}            
