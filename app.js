@@ -113,7 +113,7 @@ function checkColumns(x){
 
 function checkForwardDiag(x){
     res = false
-    for(var i = 5; i >= 0; i--){
+    for(var i = 5; i > 2; i--){
         for(var j = 0; j < 4; j++){
             console.log('checking diag');
             if(boardArr[i][j] === x && boardArr[i-1][j+1] === x && boardArr[i-2][j+2] === x && boardArr[i-3][j+3] === x){
@@ -126,8 +126,8 @@ function checkForwardDiag(x){
 
 function checkBackwardDiag(x){
     res = false
-    for(var i = 5; i >= 0; i--){
-        for(var j = 6; j >= 0; j--){
+    for(var i = 5; i > 2; i--){
+        for(var j = 6; j > 2; j--){
             console.log('checking diag');
             if(boardArr[i][j] === x && boardArr[i-1][j-1] === x && boardArr[i-2][j-2] === x && boardArr[i-3][j-3] === x){
                 res = true;
