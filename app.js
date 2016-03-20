@@ -110,6 +110,32 @@ function checkColumns(x){
             checkColumn(5, x) ||
             checkColumn(6, x)); 
 }
+
+function checkForwardDiag(x){
+    res = false
+    for(var i = 5; i >= 0; i--){
+        for(var j = 0; j < 4; j++){
+            console.log('checking diag');
+            if(boardArr[i][j] === x && boardArr[i-1][j+1] === x && boardArr[i-2][j+2] === x && boardArr[i-3][j+3] === x){
+                res = true;
+            }
+        }
+    }
+    return res;
+}
+
+function checkBackwardDiag(x){
+    res = false
+    for(var i = 5; i >= 0; i--){
+        for(var j = 6; j >= 0; j--){
+            console.log('checking diag');
+            if(boardArr[i][j] === x && boardArr[i-1][j-1] === x && boardArr[i-2][j-2] === x && boardArr[i-3][j-3] === x){
+                res = true;
+            }
+        }
+    }
+    return res;
+}
             
 function checkForWin(){
     if(checkRows('r')){
@@ -122,23 +148,37 @@ function checkForWin(){
         $('#alertBox').css('display', 'inline');
         boardReset();
         renderBoard();
-        boardReset();
-        renderBoard();
     }else if(checkColumns('r')){
         $('#alertBox').text('Red Wins');
         $('#alertBox').css('display', 'inline');
         boardReset();
         renderBoard();
-        boardReset();
-        renderBoard();   
     }else if(checkColumns('b')){
         $('#alertBox').text('Black Wins');
         $('#alertBox').css('display', 'inline');
         boardReset();
         renderBoard();
+    }else if(checkForwardDiag('r')){
+        $('#alertBox').text('Red Wins');
+        $('#alertBox').css('display', 'inline');
         boardReset();
-        renderBoard(); 
-    }       
+        renderBoard();
+    }else if(checkForwardDiag('b')){
+        $('#alertBox').text('Black Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+    }else if(checkBackwardDiag('r')){
+        $('#alertBox').text('Red Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+    }else if(checkBackwardDiag('b')){
+        $('#alertBox').text('black Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+    }        
 } 
 
 function boardReset(){
