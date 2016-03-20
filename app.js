@@ -40,6 +40,13 @@ $(function(){
             renderBoard();
             checkForWin();
     });
+    
+    $('#alertBox').on('click', function(){
+        if($(this).text){
+            $(this).css('display', 'none');
+            $(this).text('');
+        }
+    });
 });
 
 //data structure to represent the board programatically
@@ -65,7 +72,9 @@ function renderBoard(){
             }else if(val === 'b'){
                 console.log($(idString));
                 $(idString).css('background-color', 'black');
-            }
+            }else{
+                $(idString).css('background-color', 'white');
+            }         
         });
     });
 }
@@ -104,16 +113,41 @@ function checkColumns(x){
             
 function checkForWin(){
     if(checkRows('r')){
-        alert('red wins');
-        location.reload();
+        $('#alertBox').text('Red Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
     }else if(checkRows('b')){
-        alert('black wins');
-        location.reload();
+        $('#alertBox').text('Black Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+        boardReset();
+        renderBoard();
     }else if(checkColumns('r')){
-        alert('red wins');
-        location.reload();    
+        $('#alertBox').text('Red Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+        boardReset();
+        renderBoard();   
     }else if(checkColumns('b')){
-        alert('red wins');
-        location.reload();    
+        $('#alertBox').text('Black Wins');
+        $('#alertBox').css('display', 'inline');
+        boardReset();
+        renderBoard();
+        boardReset();
+        renderBoard(); 
     }       
-}            
+} 
+
+function boardReset(){
+    boardArr = [
+        ['.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.'],
+        ['.','.','.','.','.','.','.']
+    ];
+}

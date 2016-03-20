@@ -48,3 +48,17 @@
     margin-top: 10px;
 }
 
+#alertBox{
+    position: absolute;
+    vertical-align: middle;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    z-index: 20;
+    color: green;
+    display: none;
+    font-size: 80px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
