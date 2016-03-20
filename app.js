@@ -42,7 +42,7 @@ $(function(){
     });
 });
 
-//data structure to represent the board progarmatically
+//data structure to represent the board programatically
 var boardArr = [
     ['.','.','.','.','.','.','.'],
     ['.','.','.','.','.','.','.'],
@@ -85,6 +85,22 @@ function checkRows(x){
             checkRow(boardArr[4], x) ||
             checkRow(boardArr[5], x));
 }
+
+function checkColumn(index, x){
+    return (boardArr[5][index] === x && boardArr[4][index] === x && boardArr[3][index] === x && boardArr[2][index] === x ||
+            boardArr[4][index] === x && boardArr[3][index] === x && boardArr[2][index] === x && boardArr[1][index] === x ||
+            boardArr[3][index] === x && boardArr[2][index] === x && boardArr[1][index] === x && boardArr[0][index] === x );
+}
+
+function checkColumns(x){
+    return (checkColumn(0, x) ||
+            checkColumn(1, x) ||
+            checkColumn(2, x) ||
+            checkColumn(3, x) ||
+            checkColumn(4, x) ||
+            checkColumn(5, x) ||
+            checkColumn(6, x)); 
+}
             
 function checkForWin(){
     if(checkRows('r')){
@@ -93,5 +109,11 @@ function checkForWin(){
     }else if(checkRows('b')){
         alert('black wins');
         location.reload();
-    }        
+    }else if(checkColumns('r')){
+        alert('red wins');
+        location.reload();    
+    }else if(checkColumns('b')){
+        alert('red wins');
+        location.reload();    
+    }       
 }            

@@ -1,13 +1,14 @@
 #gameBoard{
     height: 75vh;
     width: 70%;
-    border: 3px solid blue;
+    border: 5px solid blue;
+    border-radius: 4px;
     background-color: blue;
 }
 
 .boardRow{
     border: 2px solid #fafa37;
-    height: 81px;
+    height: 80px;
     text-align: center;
     background-color: yellow;
 }
