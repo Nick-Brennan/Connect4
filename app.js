@@ -1,5 +1,5 @@
-var playerColor = 'red'
-var chip = 'r'
+var playerColor = 'red';
+var chip = 'r';
 
 $(function(){
     //get ready to drop piece
@@ -10,7 +10,7 @@ $(function(){
             $(this).css('background-color', 'white');
         }
     );
-    
+
     //get index of column where piece was dropped
     //and fill the last available slot beneith
     $('.moveCell').click(function(){
@@ -33,15 +33,15 @@ $(function(){
             }else if(boardArr[0][col] === '.'){
                 boardArr[0][col] = chip;
             }
-            
+
             playerColor = (playerColor === 'red') ? 'black' : 'red';
             chip = (chip === 'r') ? 'b' : 'r';
             $(this).css('background-color', playerColor);
-        
+
             renderBoard();
             checkForWin();
     });
-    
+
     //clear the win notification
     $('#alertBox').on('click', function(){
         if($(this).text){
@@ -76,7 +76,7 @@ function renderBoard(){
                 $(idString).css('background-color', 'black');
             }else{
                 $(idString).css('background-color', 'white');
-            }         
+            }
         });
     });
 }
@@ -89,7 +89,7 @@ function checkRow(arr, x){
 }
 
 
-//check win cases            
+//check win cases
 function checkRows(x){
     return (checkRow(boardArr[0], x) ||
             checkRow(boardArr[1], x) ||
@@ -112,7 +112,7 @@ function checkColumns(x){
             checkColumn(3, x) ||
             checkColumn(4, x) ||
             checkColumn(5, x) ||
-            checkColumn(6, x)); 
+            checkColumn(6, x));
 }
 
 function checkForwardDiag(x){
@@ -140,7 +140,7 @@ function checkBackwardDiag(x){
     }
     return res;
 }
-            
+
 function checkForWin(){
     if(checkRows('r')){
         $('#alertBox').text('Red Wins');
@@ -182,8 +182,8 @@ function checkForWin(){
         $('#alertBox').css('display', 'inline');
         boardReset();
         renderBoard();
-    }        
-} 
+    }
+}
 
 //reset the board
 function boardReset(){
